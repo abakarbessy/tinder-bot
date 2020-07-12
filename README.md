@@ -17,3 +17,5 @@ Prerequisites:
 To Do:
 * Make the username and password not hardcoded
 * Make strategy to swipe. At the moment only swipe left
+* store username somewhere
+* exception handling for any pop up or match in the ui
