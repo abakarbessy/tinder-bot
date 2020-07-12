@@ -19,3 +19,6 @@ To Do:
 * Make strategy to swipe. At the moment only swipe left
 * store username somewhere
 * exception handling for any pop up or match in the ui
+* put some random factor (avoid ban)
+* send default message to matches
+* stop when there is no one in the area
