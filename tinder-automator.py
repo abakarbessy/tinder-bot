@@ -44,7 +44,7 @@ class TinderAutomator():
 
     confirm_notification = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/button[1]')
     confirm_notification.click()
-    sleep(5)
+    sleep(10)
   
   def like(self):
     name = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[1]/div[3]/div[6]/div/div[1]/div/div/span').text
@@ -128,7 +128,7 @@ class TinderAutomator():
     path = "pics/"+name+"-"+age
     os.mkdir(path)
     number_of_photos = len(self.driver.find_elements_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[1]/div[3]/div[1]/div[1]/div/*'))
-    print(number_of_photos)
+    print("photo count -> ["+name +":"+ str(number_of_photos)+"]")
 
     for idx in range (number_of_photos):
       self.download_image(name, idx, path)
