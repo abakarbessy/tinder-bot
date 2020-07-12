@@ -10,9 +10,7 @@ Prerequisites:
   ```
 * Run it in python interactive mode
   ```
-  python -i tinder-automator.py
-  bot = TinderAutomator()
-  bot.run()
+  python tinder-automator.py
   ```
 To Do:
 * Make the username and password not hardcoded
