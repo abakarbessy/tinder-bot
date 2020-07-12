@@ -6,7 +6,7 @@ from PIL import Image
 import os
 
 class TinderAutomator():
-  def __init__(self, username, password): 
+  def __init__(self): 
     self.driver = webdriver.Chrome()
 
   def login_fb(self):
