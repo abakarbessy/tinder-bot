@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from PIL import Image
 
 import os
+import random
 
 class TinderAutomator():
   def __init__(self): 
@@ -62,7 +63,7 @@ class TinderAutomator():
     number_of_photos = len(self.driver.find_elements_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[1]/div[3]/div[1]/div[2]/*'))
     for idx in range (number_of_photos):
       self.driver.find_element_by_tag_name('body').send_keys(Keys.SPACE)
-      sleep(0.5)
+      sleep(0.5+random.randint(0,2))
 
   def save_card_to_photo(self):
     name = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[1]/div[3]/div[6]/div/div[1]/div/div/span').text
@@ -89,19 +90,30 @@ class TinderAutomator():
     im.save(path+"/"+"photo.png")
     os.remove(path+"/"+"tmp_shot.png")
 
+  def close_any_popup(self):
+    self.driver.find_element_by_tag_name('body').send_keys(Keys.ESCAPE)
+    sleep(0.5)
 
-  def swipe_left_forever(self):
+  def auto_swipe(self):
     while True:
       sleep(1)
       self.show_profile()
       self.hide_profile()
       self.save_card_to_photo()
       self.next_photo()
-      self.dislike()
+      try:
+        if random.randint(0,99) > 10:  
+          self.dislike()
+        else:
+          self.like()
+      except Exception as err:
+        self.close_any_popup()
+        print("Error: {0}".format(err))      
 
   def run(self): 
     self.login_fb()
     self.clear_notification()
-    self.swipe_left_forever()
+    self.auto_swipe()
 
-
+bot = TinderAutomator()
+bot.run()
