@@ -8,6 +8,7 @@ Prerequisites:
   pip install selenium
   pip install Pillow
   ```
+* Open secrets.py file and rename with your own facebook username & password
 * Run it
   ```
   python tinder-automator.py
