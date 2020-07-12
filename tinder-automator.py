@@ -44,10 +44,16 @@ class TinderAutomator():
     sleep(5)
   
   def like(self):
+    name = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[1]/div[3]/div[6]/div/div[1]/div/div/span').text
+    age = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[1]/div[3]/div[6]/div/div[1]/div/span').text
+    print("like ["+name+":"+age+"]")
     self.driver.find_element_by_tag_name('body').send_keys(Keys.RIGHT)
     sleep(1)
 
   def dislike(self):
+    name = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[1]/div[3]/div[6]/div/div[1]/div/div/span').text
+    age = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[1]/div[3]/div[6]/div/div[1]/div/span').text
+    print("dislike ["+name+":"+age+"]")
     self.driver.find_element_by_tag_name('body').send_keys(Keys.LEFT)
     sleep(1)
   
